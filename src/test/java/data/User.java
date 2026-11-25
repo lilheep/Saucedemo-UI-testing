@@ -1,5 +1,9 @@
 package data;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
 public enum User {
 
     STANDARD("standard_user", "secret_sauce"),
@@ -7,26 +11,10 @@ public enum User {
     PROBLEM("problem_user", "secret_sauce"),
     PERFORMANCE_GLITCH("performance_glitch_user", "secret_sauce");
 
+    @Getter
     private final String username;
+
+    @Getter
     private final String password;
-
-    User(String username, String password) {
-
-        this.username = username;
-        this.password = password;
-
-    }
-
-    public String getUsername() {
-
-        return username;
-
-    }
-
-    public String getPassword() {
-
-        return password;
-
-    }
 
 }
