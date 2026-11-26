@@ -3,8 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import lombok.AllArgsConstructor;
 
-import static com.codeborne.selenide.Selenide.$;
-
 @AllArgsConstructor
 public class ProductCard {
 
@@ -25,10 +23,7 @@ public class ProductCard {
         return root.$(".inventory_item_price");
     }
 
-    public SelenideElement image()
-    {
-        return root.$("img.inventory_item_img");
-    }
+    public SelenideElement image() { return root.$("img.inventory_item_img"); }
 
     public SelenideElement addToCartButton()
     {

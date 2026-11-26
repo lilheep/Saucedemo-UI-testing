@@ -16,8 +16,13 @@ public class ProductPage {
 
     @Getter
     private final SelenideElement title = $(".title");
+    @Getter
+    private final SelenideElement cartBadge = $(".shopping_cart_badge");
+    private final SelenideElement sortDropdown = $(".product_sort_container");
+
     private final ElementsCollection productImages = $$("img.inventory_item_img");
     private final ElementsCollection items = $$(".inventory_item");
+
 
     @Step("Получить ссылки на все картинки")
     public List<String> getProductImagesSource() {
@@ -49,4 +54,37 @@ public class ProductPage {
 
     }
 
+    private SelenideElement getCardAt(int index) {
+
+        return items.get(index);
+
+    }
+
+    public SelenideElement getButtonAt(int index) {
+
+        return getCardAt(index).$("button");
+
+    }
+
+    public String getProductNameAt(int index) {
+
+        return getCardAt(index).$(".inventory_item_name").text();
+
+    }
+
+    @Step("Нажать кнопку добавления в корзину у товара с номером {index}")
+    public ProductPage addToCart(int index) {
+
+        getButtonAt(index).click();
+        return this;
+
+    }
+
+    @Step("Убрать из корзины товар с номером {index}")
+    public ProductPage removeFromCart(int index) {
+
+        getButtonAt(index).click();
+        return this;
+
+    }
 }

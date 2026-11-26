@@ -12,7 +12,7 @@ public abstract class BaseTest {
     @BeforeAll
     static void setUp() {
 
-        Configuration.baseUrl = "https://www.saucedemo.com/";
+        Configuration.baseUrl = "https://www.saucedemo.com";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000;
