@@ -54,21 +54,33 @@ public class ProductPage {
 
     }
 
-    private SelenideElement getCardAt(int index) {
+    private ProductCard getCardAt(int index) {
 
-        return items.get(index);
+        return new ProductCard(items.get(index));
 
     }
 
     public SelenideElement getButtonAt(int index) {
 
-        return getCardAt(index).$("button");
+        return getCardAt(index).addToCartButton();
 
     }
 
     public String getProductNameAt(int index) {
 
-        return getCardAt(index).$(".inventory_item_name").text();
+        return getCardAt(index).title().text();
+
+    }
+
+    public String getProductPriceAt(int index) {
+
+        return getCardAt(index).price().text();
+
+    }
+
+    public String getProductDescAt(int index) {
+
+        return getCardAt(index).description().text();
 
     }
 
@@ -85,6 +97,14 @@ public class ProductPage {
 
         getButtonAt(index).click();
         return this;
+
+    }
+
+    @Step("Открыть корзину")
+    public CartPage openCart() {
+
+        $(".shopping_cart_link").click();
+        return new CartPage();
 
     }
 }
