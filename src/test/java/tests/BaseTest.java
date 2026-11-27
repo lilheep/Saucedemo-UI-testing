@@ -21,7 +21,7 @@ public abstract class BaseTest {
     }
 
     @BeforeEach
-    void AddAllureListener() {
+    void addAllureListener() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
