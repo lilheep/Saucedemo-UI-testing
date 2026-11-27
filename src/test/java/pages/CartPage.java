@@ -71,4 +71,12 @@ public class CartPage {
 
     }
 
+    @Step("Перейти к оформлению заказа")
+    public CheckoutInfoPage checkout() {
+
+        $("#checkout").click();
+        return new CheckoutInfoPage();
+
+    }
+
 }
