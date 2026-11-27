@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class BaseTest {
 
@@ -16,6 +17,11 @@ public abstract class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000;
+
+    }
+
+    @BeforeEach
+    void AddAllureListener() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
